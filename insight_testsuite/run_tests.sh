@@ -38,12 +38,17 @@ function check_project_struct {
 # setup testing output folder
 function setup_testing_input_output {
   TEST_OUTPUT_PATH=${GRADER_ROOT}/temp
+  # searhes for exiting folder; deletes if it exists 
   if [ -d ${TEST_OUTPUT_PATH} ]; then
     rm -rf ${TEST_OUTPUT_PATH}
   fi
 
+  # makes folder
   mkdir -p ${TEST_OUTPUT_PATH}
 
+  echo $PROJECT_PATH
+  echo $TEST_OUTPUT_PATH
+  pwd
   cp -r ${PROJECT_PATH}/src ${TEST_OUTPUT_PATH}
   cp -r ${PROJECT_PATH}/run.sh ${TEST_OUTPUT_PATH}
   cp -r ${PROJECT_PATH}/input ${TEST_OUTPUT_PATH}
